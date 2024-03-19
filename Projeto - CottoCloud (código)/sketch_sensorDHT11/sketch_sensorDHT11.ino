@@ -1,13 +1,19 @@
 #include "DHT.h"
 #define dht_type DHT11
 
+//Processo da declaração de variável: para armazenar os dados que serão recebidos pelo sensor. //
+
 int dht_pin = A0;
 DHT dht_1 = DHT(dht_pin, dht_type);
+
+// Processo do Setup: Serve para configurar o ambiente inicial do código. //
 
 void setup() {
   Serial.begin(9600);
   dht_1.begin();
 }
+
+// Processo do Looping: Serve para manter a constância na atualização dos dados recebidos pelo sensor.
 
 void loop() {
   float umidade = dht_1.readHumidity();
