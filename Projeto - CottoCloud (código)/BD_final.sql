@@ -1,7 +1,7 @@
 create database pialgodao;
 use pialgodao;
 
-CREATE TABLE produtor (
+CREATE TABLE produtor (-- tabela que armazenara os dados do produtor de algodão
     idlogin INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(50) NOT NULL,
     email VARCHAR(50) NOT NULL,
@@ -13,8 +13,8 @@ CREATE TABLE produtor (
 
 DESC produtor;
 
-
-CREATE TABLE usuario (
+-- dados do usuario que fara uso da aplicação (funcionario do produtor)
+CREATE TABLE usuario (            
     idlogin INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(50) NOT NULL,
     email VARCHAR(50) NOT NULL,
@@ -23,7 +23,7 @@ CREATE TABLE usuario (
     constraint chkacesso check (nivel_de_acesso in ('acesso total','acesso moderado','visualizador'))
 );
 
-
+-- dados capturados pelo sensor do arduino 
 create table sensor (
 	idsensor int primary key auto_increment,
     temperatura decimal(8,2),
@@ -36,7 +36,7 @@ create table sensor (
     CHECK (estadoUmidade IN ('BOM', 'RUIM'))
 );
     
-
+-- tabela responsavel por armazenar os dados da fazenda
 create table fazenda(
 	idfazenda int primary key auto_increment,
 	endereco varchar(50) not null,
@@ -70,6 +70,53 @@ default,'rua turquia','049549',4,'4'),
 (default,'Parnaiba','4448557',5,6),
 (default,'Xique Xique','1234567',3,7);
 
+
+
+	insert into sensor values (
+    default,16,60,'BOM','BOM'),
+    (default,33,70,'RUIM','BOM'),
+    (default,20,82,'BOM','RUIM'),
+    (default,17,50,'BOM','BOM'),
+    (default,25,82,'RUIM','RUIM'),
+    (default,17,86,'BOM','RUIM');
+    
+insert into usuario values(
+default,'josimar','josimar112@gmail.com','abacaxi123','acesso moderado'),
+(default,'Willian','wilian112@gmail.com','melso123','acesso total'),
+(default,'Antonio','Antonio112@gmail.com','12345678','visualizador'),
+(default,'Arthur','arthur555@gmail.com','batatinha123','acesso moderado'),
+(default,'wellington','well55112@gmail.com','766776123','acesso total'),
+(default,'Caue','caue11332@gmail.com','7885775557','visualizador');
+
+
+
+select * from produtor;
+
+select * from sensor;
+
+select * from fazenda;
+
+select * from usuario;
+
+
+SELECT concat(nome, email) FROM produtor;
+SELECT concat(nome, ' ', email) FROM produtor;
+SELECT concat('O produtor ', nome, ' que possui o email ', email) 
+	FROM produtor;
+    
+    
+    
+SELECT concat(nome, email) FROM usuario;
+SELECT concat(nome, ' ', email) FROM produtor;
+SELECT concat('O usuario  ', nome, ' possui o nivel de acesso :', nivel_de_acesso) 
+	FROM usuario;
+    
+    
+    
+    
+    
+
+   
 
 
 
