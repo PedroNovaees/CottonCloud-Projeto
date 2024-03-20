@@ -1,0 +1,88 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #f2e7dc;
+    display: flex;
+    justify-content: center;
+    background-image: url('imagem-fundo2.png');
+    background-size: cover;
+}
+
+.container {
+    background-color: #252321;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 35px;
+}
+
+.descricao {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.titulo {
+    color: #0FA046;
+    margin: 10px;
+}
+
+.paragrafo-descricao {
+    color: #F2E7DC;
+    font-size: 22px;
+    margin: 0;
+    padding: 12px;
+    border-bottom: 3px solid #F2E7DC;
+}
+
+span {
+    font-weight: bold;
+    font-style: italic;
+    color: #0FA046;
+}
+
+.conteudo {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 20px;
+    background-color: #F2E7DC;
+    border-radius: 8px;
+    padding: 25px;
+}
+
+.input{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 8px;
+}
+
+.paragrafo-input {
+    margin: 3px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #252321;
+}
+
+input {
+    margin: 3px;
+}
+
+.div-botao {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    font-size: 20px;
+    font-weight: bold;
+    color: #252321;
+    background-color: #0FA046;
+    padding: 8px;
+}
