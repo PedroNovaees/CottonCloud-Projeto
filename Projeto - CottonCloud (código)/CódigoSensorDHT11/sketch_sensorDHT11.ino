@@ -1,7 +1,7 @@
+//Processo da declaração de porta: Serve para armazenar os dados que serão recebidos pelo sensor. //
+
 #include "DHT.h"
 #define dht_type DHT11
-
-//Processo da declaração de variável: para armazenar os dados que serão recebidos pelo sensor. //
 
 int dht_pin = A0;
 DHT dht_1 = DHT(dht_pin, dht_type);
