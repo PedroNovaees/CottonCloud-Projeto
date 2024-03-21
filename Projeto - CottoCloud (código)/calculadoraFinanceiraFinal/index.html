@@ -14,22 +14,18 @@
             <h1 class="titulo">Simulador Financeiro</h1>
             <p class="paragrafo-descricao">Use a nossa calculadora financeira e surpreenda-se com o quanto nós
                 podemos
-                <span>influenciar na sua
+                <span class="destaque verde italico">influenciar na sua
                     produção.</span>
             </p>
         </div>
         <div class="conteudo" id="conteudo">
-            <div class="input">
+            <div class="div-input">
                 <p class="paragrafo-input">Qual o nome da sua empresa?</p>
                 <input type="text" id="nome_empresa">
             </div>
-            <div class="input">
+            <div class="div-input">
                 <p class="paragrafo-input">Qual é o seu faturamento anual?</p>
                 <input type="number" id="faturamento_anual">
-            </div>
-            <div class="input">
-                <p class="paragrafo-input">Qual foi o seu prejuízo no último ano?</p>
-                <input type="number" id="prejuizo_anual">
             </div>
         </div>
         <div class="div-botao" id="div_botao">
@@ -43,26 +39,43 @@
 
 <script>
     function simular() {
-        var nomeEmpresa = nome_empresa.value
-        var faturamentoAnual = Number(faturamento_anual.value)
-        var prejuizoAnual = Number(prejuizo_anual.value)
-        var perdaFungoAnual = prejuizoAnual * 0.4
-        var perdaFungoMensal = perdaFungoAnual / 12
-        var faturamentoAnualPossivel = faturamentoAnual + perdaFungoAnual
-        var faturamentoMensalPossivel = faturamentoAnualPossivel / 12
+        let nomeEmpresa = nome_empresa.value
+        let faturamentoAnual = Number(faturamento_anual.value)
+        let perdaFungoAnual = faturamentoAnual * 0.4
+        let perdaFungoMensal = perdaFungoAnual / 12
+        let faturamentoAnualPossivel = faturamentoAnual + perdaFungoAnual
+        let faturamentoMensalPossivel = faturamentoAnualPossivel / 12
 
-        conteudo.innerHTML = `<p>Parabéns ${nomeEmpresa}! Sabemos que para alcançarem o faturamento de R$${faturamentoAnual} no último ano certamente tiveram muita dedicação e trabalho árduo.</p>
+        //formatando as variáveis de números
+        let formatFaturamentoAnual = faturamentoAnual.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
+        let formatPerdaFungoAnual = perdaFungoAnual.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
+        let formatPerdaFungoMensal = perdaFungoMensal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
+        let formatFaturamentoAnualPossivel = faturamentoAnualPossivel.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
+        let formatFaturamentoMensalPossivel = faturamentoMensalPossivel.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
+
+        conteudo.innerHTML = `<p><span class="destaque">Parabéns ${nomeEmpresa}!</span> Sabemos que para alcançarem o <span class="italico">faturamento de <span class="destaque amarelo">${formatFaturamentoAnual}</span> no último ano certamente tiveram muita dedicação e trabalho árduo.</p>
         
-        <p>A análise que fizemos sobre os seus resultados revelou alguns insights cruciais: Devido a falta de monitoramento de temperatura e umidade, fungos podem estar comprometendo o seu faturamento anual e a qualidade do seu produto.</p>
-        <p>Pesquisas apontam que até 40% da plantação de algodão em média pode ser prejudicada devido a presença de fungos causados pela temperatura e umidade.</p>
+        <p>A análise que fizemos sobre os seus resultados revelou alguns insights cruciais: Devido a <span class="italico">falta de monitoramento de temperatura e umidade</span>, fungos podem estar comprometendo o seu faturamento anual e a qualidade do seu produto.</p>
+        <p>Pesquisas apontam que até <span class="destaque">40% da plantação de algodão</span> pode ser prejudicada devido a presença de fungos causados pela temperatura e umidade.</p>
         
+        <h3>Perdas por falta de controle</h3>
+        <p class="paragrafo-perda">
+            <span class="destaque vermelho">
+                Mensal: ${formatPerdaFungoMensal}
+            </span>
+        </p>
+        <p class="paragrafo-perda">
+            <span class="destaque vermelho">
+                Anual: ${formatPerdaFungoAnual}
+            </span>
+        </p>
+
         <h3>Veja a seguir algumas estimativas sobre os seus resultados com a nossa solução:</h3>
-        <h4>Perdas por falta de controle</h4>
-        <p>Mensal: ${perdaFungoMensal}</p>
-        <p>Anual: ${perdaFungoAnual}</p>
 
         <h4>Oportunidade</h4>
-        <p>Atráves da nossa solução você tem a possibilidade de elevar o seu faturamento de R$${faturamentoAnual} para R$${faturamentoAnualPossivel}, gerando uma receita de R$${faturamentoMensalPossivel} por mês!</p>
+        <p>
+            Atráves da nossa solução você tem a possibilidade de elevar o seu <span class="italico">faturamento</span> de <span class="destaque amarelo">${formatFaturamentoAnual}</span> para <span class="destaque verde">${formatFaturamentoAnualPossivel}</span>, gerando uma receita de <span class="destaque   verde">${formatFaturamentoMensalPossivel} por mês!</span>
+            </p>
         
         <p><i>Este cálculo foi feito com base na perda por fungos Mancha de Romulária, Mofo-Branco e Mancha-Alvo (os mais comuns na plantação de algodoeiro).</i></p>`
 
